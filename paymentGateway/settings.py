@@ -80,11 +80,17 @@ WSGI_APPLICATION = 'paymentGateway.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'gateway',
-        'USER': 'postgres',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
-        'PORT': '5432',
+#         'NAME': 'gateway',
+#         'USER': 'postgres',
+#         'PASSWORD': 'root',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+        'NAME': 'd8uvck0kq2ejfu',
+        'USER': 'hkivweeusevtxj',
+        'PASSWORD': 'd591af47b63965512f97d361a7d0c916a1a5ee79dd1b80b30953aa83d4dc0b0b',
+        'HOST': 'ec2-34-235-62-201.compute-1.amazonaws.com',
+        'PORT': 5432,
+
     }
 }
 
