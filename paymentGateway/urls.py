@@ -23,13 +23,8 @@ router = routers.DefaultRouter()
 router.register(r'gaetway', TransactionViewSet, basename="gaetway")
 router.register(r'all_transactions', AllTransaction,
                 basename="all_transactions")
-# router.register(r'add_amount', AddAmountViewSet, basename="add_amount")
-# router.register(r'pay_amount', PayAmountViewSet, basename="pay_amount")
-# router.register(r'all_transactions', TransactionsViewSet,
-#                 basename="all_transactions")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    # path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

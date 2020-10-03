@@ -2,11 +2,9 @@ import random
 import string
 from datetime import datetime
 from rest_framework import viewsets
-# from rest_framework import permissions
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from paymentApp.models import TransactionHistory
-from paymentApp.serializers import AllTransactionSerializer
 
 
 def get_random_alphanumeric_string(length):
@@ -27,13 +25,38 @@ def try_or(fn, default, *args, **kwargs):
 
 
 class TransactionViewSet(viewsets.ViewSet):
-    """Transaction Data"""
+    """
+    (POST) Api for Payment Gateway
+
+    Request =  {
+        "amount": "100",
+        “currency”: "USD",
+        "type": "creditcard",
+        "card": {
+            "number": "4111111111111111",
+            "expirationMonth": "2",
+            "expirationYear": "2020",
+            "cvv": "111"
+            }
+        }
+
+    Response = {
+        "amount": "100",
+        “currency”: “USD”,
+        “type”: “creditcard”
+        "card": {
+            "number": "4111111111111111"
+        }
+        “status”: “success”,
+        “authorization_code”: “SDSD23232333”
+        “time”: “2020-05-16 07:00:00”
+    }
+    """
     permission_classes = (AllowAny, )
 
     def create(self, request, pk=None):
         response = dict()
         validate_data = validate(self.request.data)
-        # import ipdb; ipdb.set_trace()
         if validate_data['status']:
             response = {
                 "amount": self.request.data['amount'],
@@ -79,7 +102,18 @@ def validate(data):
 
 class AllTransaction(viewsets.ViewSet):
     """
-    A viewset for all transactions.
+    (GET) Api for all transactions.
+    Response =  {
+        "amount": "100",
+        “currency”: "USD",
+        "type": "creditcard",
+        "card": {
+            "number": "4111111111111111",
+            "expirationMonth": "2",
+            "expirationYear": "2020",
+            "cvv": "111"
+            }
+        }
     """
     permission_classes = (AllowAny, )
 
