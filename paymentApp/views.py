@@ -27,30 +27,6 @@ def try_or(fn, default, *args, **kwargs):
 class TransactionViewSet(viewsets.ViewSet):
     """
     (POST) Api for Payment Gateway
-
-    Request =  {
-        "amount": "100",
-        “currency”: "USD",
-        "type": "creditcard",
-        "card": {
-            "number": "4111111111111111",
-            "expirationMonth": "2",
-            "expirationYear": "2020",
-            "cvv": "111"
-            }
-        }
-
-    Response = {
-        "amount": "100",
-        “currency”: “USD”,
-        “type”: “creditcard”
-        "card": {
-            "number": "4111111111111111"
-        }
-        “status”: “success”,
-        “authorization_code”: “SDSD23232333”
-        “time”: “2020-05-16 07:00:00”
-    }
     """
     permission_classes = (AllowAny, )
 
@@ -103,17 +79,6 @@ def validate(data):
 class AllTransaction(viewsets.ViewSet):
     """
     (GET) Api for all transactions.
-    Response =  {
-        "amount": "100",
-        “currency”: "USD",
-        "type": "creditcard",
-        "card": {
-            "number": "4111111111111111",
-            "expirationMonth": "2",
-            "expirationYear": "2020",
-            "cvv": "111"
-            }
-        }
     """
     permission_classes = (AllowAny, )
 
