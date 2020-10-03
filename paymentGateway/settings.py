@@ -26,7 +26,7 @@ SECRET_KEY = '0w9499d6tq7&h-79x)w==*58+eo%l%sootub1#6&vt26r!-_*!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['young-hollows-99530.herokuapp.com', 'localhost']
 
 
 # Application definition
